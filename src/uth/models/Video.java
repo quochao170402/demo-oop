@@ -1,7 +1,7 @@
-package uth.it.ooreview.models;
+package uth.models;
 
 public class Video {
-    private double id;
+    private final double id;
     private String title;
 
     public Video(double id, String title) {
@@ -13,12 +13,12 @@ public class Video {
         return this.id;
     }
 
-    public void setTitle(String newTitle){
-        this.title = newTitle;
-    }
-
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String newTitle) {
+        this.title = newTitle;
     }
 
     @Override

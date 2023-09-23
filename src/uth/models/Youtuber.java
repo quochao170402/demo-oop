@@ -1,14 +1,10 @@
-package uth.it.ooreview.models;
-
-import uth.it.ooreview.utils.WriteFile;
+package uth.models;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
-public class Youtuber extends User{
-    private List<Viewer> viewerList;
+public class Youtuber extends User {
+    private final List<Viewer> viewerList;
     private String category;
 
     public Youtuber(double id, String name) {
@@ -16,25 +12,8 @@ public class Youtuber extends User{
         this.viewerList = new ArrayList<>();
     }
 
-
-    public enum Category {
-        MUSIC(1),
-        SPORT(2),
-        ANIMAL(3),
-        KID(4),
-        NEWS(5),
-        TECH(6),
-        CAR(7);
-
-        private final int cat;
-
-        Category(int i) {
-            this.cat = i;
-        }
-
-        public int getCategory() {
-            return this.cat;
-        }
+    public String getCategory() {
+        return this.category;
     }
 
     public void setCategory(int cat) {
@@ -44,10 +23,6 @@ public class Youtuber extends User{
                 this.category = c.name();
             }
         }
-    }
-
-    public String getCategory() {
-        return this.category;
     }
 
     public void addVideo(Video video) {
@@ -70,13 +45,6 @@ public class Youtuber extends User{
     public void deleteVideo(Video video) {
         this.videos.remove(video);
     }
-
-    public void exportVideoList(String path) {
-        WriteFile wt = new WriteFile();
-        wt.setContent(videos);
-        wt.writeListToFile(path);
-    }
-
     public void addViewer(Viewer viewer) {
         if (!this.viewerList.contains(viewer)) {
             this.viewerList.add(viewer);
@@ -91,17 +59,11 @@ public class Youtuber extends User{
         return null;
     }
 
-
     public void deleteViewer(Viewer viewer) {
         this.viewerList.remove(viewer);
         viewer.getUnSubNotification(this);
     }
 
-    public void exportViewerList(String path) {
-        WriteFile wt = new WriteFile();
-        wt.setContent(this.viewerList);
-        wt.writeListToFile(path);
-    }
 
     public List<Video> getVideoList() {
         return this.videos;
@@ -122,5 +84,25 @@ public class Youtuber extends User{
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 '}';
+    }
+
+    public enum Category {
+        MUSIC(1),
+        SPORT(2),
+        ANIMAL(3),
+        KID(4),
+        NEWS(5),
+        TECH(6),
+        CAR(7);
+
+        private final int cat;
+
+        Category(int i) {
+            this.cat = i;
+        }
+
+        public int getCategory() {
+            return this.cat;
+        }
     }
 }

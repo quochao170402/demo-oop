@@ -1,4 +1,4 @@
-package uth.it.ooreview.models;
+package uth.models;
 
 import java.util.ArrayList;
 import java.util.Collection;

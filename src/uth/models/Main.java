@@ -1,8 +1,9 @@
-package uth.it.ooreview;
+package uth.models;
 
-import uth.it.ooreview.models.Video;
-import uth.it.ooreview.models.Viewer;
-import uth.it.ooreview.models.Youtuber;
+
+import uth.models.Video;
+import uth.models.Viewer;
+import uth.models.Youtuber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Main {
         youtuber1.addVideo(v1);
         youtuber1.addVideo(v2);
         youtuber1.addVideo(v4);
-        youtuber1.updateVideo(v4,"Make GUI with JAVA Spring");
+        youtuber1.updateVideo(v4, "Make GUI with JAVA Spring");
 
         Youtuber youtuber2 = new Youtuber(2, "Supper Car");
         youtuber2.setCategory(7);

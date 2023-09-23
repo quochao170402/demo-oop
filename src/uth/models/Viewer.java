@@ -1,6 +1,5 @@
-package uth.it.ooreview.models;
+package uth.models;
 
-import uth.it.ooreview.utils.WriteFile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,10 +8,10 @@ import java.util.List;
 
 public class Viewer extends User {
     private String[] interest;
-    private List<Youtuber> youtubers;
+    private final List<Youtuber> youtubers;
     private Video curWatch;
 
-    public Viewer(double id, String name)  {
+    public Viewer(double id, String name) {
         super(id, name);
         this.youtubers = new ArrayList<>();
     }
@@ -26,6 +25,10 @@ public class Viewer extends User {
         return interest;
     }
 
+    public void setInterest(String[] interests) {
+        this.interest = interests;
+    }
+
     public List<Youtuber> getYoutubers() {
         return youtubers;
     }
@@ -33,11 +36,6 @@ public class Viewer extends User {
     public Video getCurWatch() {
         return curWatch;
     }
-
-    public void setInterest(String[] interests) {
-        this.interest = interests;
-    }
-
 
     public void watchVideo(Video video) {
         System.out.println(this.name + " are watching: " + video.getTitle());
@@ -73,12 +71,6 @@ public class Viewer extends User {
             if (id == youtuber.getId())
                 return youtuber;
         return null;
-    }
-
-    public void exportYoutuberList(String path) {
-        WriteFile wt = new WriteFile();
-        wt.setContent(this.youtubers);
-        wt.writeListToFile(path);
     }
 
     @Override
