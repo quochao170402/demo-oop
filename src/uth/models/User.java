@@ -32,4 +32,6 @@ public abstract class User {
         return videos;
     }
 
+    public abstract String getInformation();
+
 }

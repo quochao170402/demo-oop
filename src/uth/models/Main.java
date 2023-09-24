@@ -36,6 +36,7 @@ public class Main {
         System.out.println("===============Youtubers===============");
         youtubers.forEach(System.out::println);
         System.out.println("=======================================");
+
         // Viewers
         Viewer viewer1 = new Viewer(1, "ThoLe");
         String[] interests1 = new String[]{"TECH", "FUNNY", "MUSIC"};
@@ -65,6 +66,5 @@ public class Main {
         youtubers.forEach(Youtuber::onNotification);
         youtuber1.getVideoList().forEach(viewer2::watchVideo);
         System.out.println("=====================================");
-
     }
 }

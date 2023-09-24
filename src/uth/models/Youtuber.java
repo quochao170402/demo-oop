@@ -86,6 +86,14 @@ public class Youtuber extends User {
                 '}';
     }
 
+    @Override
+    public String getInformation() {
+        return "Youtuber " +
+                "id: " + id +
+                ", name: " + name +
+                ", category: " + category;
+    }
+
     public enum Category {
         MUSIC(1),
         SPORT(2),

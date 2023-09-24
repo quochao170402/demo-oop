@@ -3,7 +3,6 @@ package uth.models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 public class Viewer extends User {
@@ -14,11 +13,6 @@ public class Viewer extends User {
     public Viewer(double id, String name) {
         super(id, name);
         this.youtubers = new ArrayList<>();
-    }
-
-    @Override
-    public Collection<Video> getVideos() {
-        return null;
     }
 
     public String[] getInterest() {
@@ -41,7 +35,6 @@ public class Viewer extends User {
         System.out.println(this.name + " are watching: " + video.getTitle());
         videos.add(video);
         this.curWatch = video;
-
     }
 
     public void getSubNotification(Youtuber channel) {
@@ -83,5 +76,11 @@ public class Viewer extends User {
                 '}';
     }
 
-
+    @Override
+    public String getInformation() {
+        return "Viewer " +
+                "id:" + id +
+                ", name:'" + name +
+                ", interest:" + Arrays.toString(interest);
+    }
 }
